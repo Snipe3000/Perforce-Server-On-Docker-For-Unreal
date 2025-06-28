@@ -38,15 +38,13 @@ RUN curl -fsSL https://github.com/tianon/gosu/releases/download/1.17/gosu-amd64 
     && chmod +x /usr/local/bin/gosu \
     && gosu nobody true
 
-# ENTRYPOINT ["/init"]
 
 # Make sure the run.sh script is executable
 ADD ./run.sh /
+RUN chmod +x /run.sh
 
 # Convert Windows line endings (CRLF) to Unix line endings (LF) for run.sh
 RUN sed -i 's/\r//' /run.sh
-
-RUN chmod +x /run.sh
 
 # Use /run.sh as the entry point to start the container
 ENTRYPOINT ["/run.sh"]
@@ -78,6 +76,3 @@ ADD ./typemap.txt /root/
 
 ADD ./setup-perforce.sh /usr/local/bin/
 RUN sed -i 's/\r//' /usr/local/bin/setup-perforce.sh
-
-# Default command to run the server via run.sh or p4d
-#CMD ["/run.sh"]
