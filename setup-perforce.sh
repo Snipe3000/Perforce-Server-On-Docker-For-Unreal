@@ -64,28 +64,9 @@ if [ "$FRESHINSTALL" = "1" ]; then
     p4 configure set dm.keys.hide=2
 
     # Update the Typemap
-    # Based on : https://docs.unrealengine.com/en-us/Engine/Basics/SourceControl/Perforce
-    (p4 typemap -o; echo " binary+w //depot/....exe") | p4 typemap -i
-    (p4 typemap -o; echo " binary+w //depot/....dll") | p4 typemap -i
-    (p4 typemap -o; echo " binary+w //depot/....lib") | p4 typemap -i
-    (p4 typemap -o; echo " binary+w //depot/....app") | p4 typemap -i
-    (p4 typemap -o; echo " binary+w //depot/....dylib") | p4 typemap -i
-    (p4 typemap -o; echo " binary+w //depot/....stub") | p4 typemap -i
-    (p4 typemap -o; echo " binary+w //depot/....ipa") | p4 typemap -i
-    (p4 typemap -o; echo " binary //depot/....bmp") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....ini") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....config") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....cpp") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....h") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....c") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....cs") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....m") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....mm") | p4 typemap -i
-    (p4 typemap -o; echo " text //depot/....py") | p4 typemap -i
-    (p4 typemap -o; echo " binary+l //depot/....uasset") | p4 typemap -i
-    (p4 typemap -o; echo " binary+l //depot/....umap") | p4 typemap -i
-    (p4 typemap -o; echo " binary+l //depot/....upk") | p4 typemap -i
-    (p4 typemap -o; echo " binary+l //depot/....udk") | p4 typemap -i
+    # Based on : https://x157.github.io/Perforce/Typemap
+	cat /root/typemap.txt | p4 typemap -i
+
 fi
 
 echo "   P4USER=$P4USER (the admin user)"

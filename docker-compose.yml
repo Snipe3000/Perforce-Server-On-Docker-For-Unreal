@@ -1,0 +1,11 @@
+services:
+  perforce:
+    hostname: perforce
+    volumes:
+      - /mnt/user/Perforce/:/data
+    ports:
+      - "1666:1666"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #restart: unless-stopped  # Optional: Restart the container if it stops unexpectedly
