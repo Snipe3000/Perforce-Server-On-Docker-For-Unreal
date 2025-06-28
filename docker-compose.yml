@@ -1,5 +1,6 @@
 services:
   perforce:
+    container_name: Perforce-Server
     hostname: perforce
     volumes:
       - /mnt/user/Perforce/:/data
