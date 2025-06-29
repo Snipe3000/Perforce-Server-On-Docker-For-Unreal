@@ -3,9 +3,15 @@ services:
     container_name: Perforce-Server
     hostname: perforce
     volumes:
+      - /mnt/user/appdata/perforce-server/logs:/data/p4depot/logs
       - /mnt/user/Perforce/:/data
     ports:
       - "1666:1666"
+    environment:
+      - P4PORT=1666
+      - P4USER=admin
+      - P4USER=p4admin
+      - P4PASSWD=pass12349ers!
     build:
       context: .
       dockerfile: Dockerfile
