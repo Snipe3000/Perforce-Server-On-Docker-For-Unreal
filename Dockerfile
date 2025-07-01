@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     debianutils \
     gnupg2 \
+	netcat-traditional \
     lsb-release && \
     rm -rf /var/lib/apt/lists/*
 

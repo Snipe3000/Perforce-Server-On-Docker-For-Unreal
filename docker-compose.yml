@@ -8,7 +8,9 @@ services:
     ports:
       - "1666:1666"
     environment:
-      - P4PORT=1666
+      - P4PORT=ssl:1666
+      - P4SSLDIR=/data/p4depot/ssl
+      - P4ROOT=/data/p4depot
       - P4USER=admin
       - P4USER=p4admin
       - P4PASSWD=pass12349ers!
