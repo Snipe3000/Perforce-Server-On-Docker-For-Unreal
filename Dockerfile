@@ -1,7 +1,6 @@
 # Use Ubuntu 24.04 (Noble Numbat) as the base image
 ARG P4_BASEIMAGE=ubuntu:24.04
 FROM $P4_BASEIMAGE AS perforce-base
-MAINTAINER Van Ferguson
 
 ENV container docker
 
@@ -16,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     debianutils \
     gnupg2 \
 	netcat-traditional \
+	iputils-ping \
     lsb-release && \
     rm -rf /var/lib/apt/lists/*
 
@@ -51,7 +51,6 @@ RUN sed -i 's/\r//' /run.sh
 ENTRYPOINT ["/run.sh"]
 
 FROM perforce-base AS perforce-server
-MAINTAINER Van Ferguson
 
 # Use the same P4_VERSION build argument
 ARG P4_VERSION=2025.1
