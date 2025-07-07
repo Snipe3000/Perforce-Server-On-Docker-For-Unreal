@@ -3,7 +3,9 @@
 This is a fork of Jonas Haberkorn's work. Updated to use the latest version of perforce server and switched over to ubuntu. CentOS is no longer being maintained. 
 P4 code review (Swarm) and redis have also been added.
 
-Feel free to add a custom networking setup to the docker-compose.yml if you'd like. Keep in mind, the p4d server, swarm, and redis work with less trouble if they are all on the same network, otherwise you'll have to do some host name ninjutsu.
+Swarm requires two p4 accounts to work, the super account (p4admin) that is made from the script and a regular user account. I made one called "Van" that you can change throught the files if you'd like.
+
+Feel free to add a custom networking setup to the docker-compose.yml. Keep in mind, the p4d server, swarm, and redis work with less trouble if they are all on the same network, otherwise you'll have to do some host name ninjutsu.
 
 I have confirmed that this will work within Docker Compose Manager through Unraid.
 
